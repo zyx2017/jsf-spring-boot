@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'myacs'
+    version =  '0.1.0'
+}
+
+repositories {
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+    compile group: "org.primefaces", name: "primefaces", version: "6.1"
+	
+    compile group: "com.sun.faces", name: "jsf-api", version: "2.2.7"
+    compile group: "com.sun.faces", name: "jsf-impl", version: "2.2.7"
+	
+	compile group: "org.apache.tomcat.embed", name: "tomcat-embed-core", version: '8.+'
+	compile group: "org.apache.tomcat.embed", name: "tomcat-embed-logging-juli", version: '8.+'
+	compile group: "org.apache.tomcat.embed", name: "tomcat-embed-jasper", version: '8.+'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
