@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+	  xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+	  <h:head>
+	      <title>Welcome myacs</title>
+	  </h:head>
+	  <h:body>
+	    <p:layerout>
+		    <p:layoutUnit position="center">
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="name" value="Username:" style="font-weight:bold" />
+					<p:inputText id="name" value="#{user.name}" />
+					<h:outputLabel for="Password" value="Password:" style="font-weight:bold" />
+					<p:password id="password" value="#{user.password}" feedback="true" />
+					<p:commandButton value="Submit"  actionListener="#{user.verify}" update="display" icon="ui-icon-check" action="#{user.result}" />
+				</h:panelGrid>
+				<h:outputText id="display" value="#{user.failed}" />
+			</h:form>
+			</p:layoutUnit>
+		</p:layerout>
+	  </h:body>
+	  
+</html>
